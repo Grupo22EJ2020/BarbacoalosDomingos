@@ -14,9 +14,9 @@ listaEmpleado=[]
 print("Menu")
 while True:
     print("Te presento el menu para Empleados")
-    opcion= int(input("Opcion 1: Agregar,Opcion 2: Eliminar, Que opcion eliges:\n"))
+    opcion= int(input("Opcion 1: Agregar,Opcion 2: Eliminar,4:Consultar todo Que opcion eliges:\n"))
     if opcion ==1:
-        agregar= open("./archivos/empleados.txt" ,'a')
+        archivo= open("./archivos/empleados.txt" ,'a')
 
         idempleado=int(input("Cual es el id del empleado:\n"))
         nombreEmpleado=input("Cual es su nombre:\n")
@@ -25,13 +25,16 @@ while True:
         empleado= Empleados(idempleado,nombreEmpleado,direccion)
         info=empleado.infoempleado()
 
-        agregar.write(info)
+        archivo.write(info)
 
-        agregar.close()
-    elif opcion ==2:
-        if listaEmpleado==[]:
-            print("Actualmente esta vacia")
-        else:
-            idempleado=int(input("Id a eliminar"))
-            listaEmpleado.remove(Empleados(idempleado,None,None))
-    break
+        archivo.close()
+  
+
+    elif opcion == 4:
+        archivo=open("./archivos/empleados.txt",'r')
+
+        print(archivo.read())
+
+        archivo.close()
+
+        
