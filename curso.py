@@ -8,7 +8,7 @@ class Curso:
     def idCurso(self):
          return self.__idCurso
 
-    def infocurso(self):
+    def infoCurso(self):
          return f"{self.__idCurso}|{self.__descripcion}|{self.__idempleado}"
     
     @property
@@ -30,9 +30,9 @@ class Curso:
     
 
 lista_curso=[]
-print (" Bienvenido al menu")
+print ("Menu")
 while True:
-    print ("Este es el menu para el curso")
+    print ("Este es el menu para el Curso")
     opcion=int(input(" Opcion [1] Agregar\n Opcion [2] Eliminar\n Opcion [3] Modificar\n Opcion [4] Consultar\n ¿Cual es la opcion que eliges?\n"))
     if opcion==1:
         archivo =open("./archivos/cursos.txt",'a') 
@@ -48,49 +48,37 @@ while True:
 
         archivo.close()
        
-    
     elif opcion==2:
-        list ==[]
-        borrar=print("Ingrese el id del curso que desea borrar")
-        archivo = open("./archivos/cursos.txt",'a')
-        for renglon in archivo:
-            R = renglon.split("|")
-            if borrar == R[0]:
-                 pass
-            else:
-                list.append(renglon) 
-            archivo.close()
-            archivo = open("./archivos/cursos.txt",'a')
-            for curso in list:
-                 archivo.write(curso)
-            archivo.close()
-            print("El curso fue eliminado")
-   
-           
-    if opcion==3:
-        archivo=open("./archivos/cursos.txt",'a')
-        for renglon in archivo:
-            infocurso=renglon.split('|')
-            print(F'IdCurso: {infocurso[0]} Descripcion:{infocurso[0]} IdEmpleado: {infocurso[0]}')
-            archivo.close()
+        archivo= open("./archivos/empleados.txt",'w')
+        if lista_curso==[]:
+            print("Ingresa el cursoa eliminar")
+        else:
+            reg=int(input("Registro:"))
+            for borrar in lista_curso:
+                if borrar.idCurso == reg:
+                    lista_curso.remove(curso(reg,None,None))
+                    input("Curso eliminado")
 
-            
+    
+    elif opcion==3:
+        def main3():
+            numero = 0
+            print("A eligido modificar")
+            numero = input("Ingrese el numero del curso a modificar")
+            archivo= open("./archivos/empleados.txt",'r')
+            lineas = archivo.readlines()
+            archivo.close
+            archivo = open("./archivos/empleados.txt",'w')
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            for linea in lineas:
+                if linea[0] == numero:
+                    idCurso=int(input("Ingrese el nuevo id del curso"))
+                    descripcion=input("Ingrese la nueva descripcion")
+                    idempleado=int(input("ingresa el nuevo id para el epleado"))
+                    archivo.write(idCurso + "|" + descripcion) + "|" + idempleado +"|"
+                else:
+                    archivo.write(linea)
+            archivo.close
+        main3()
+    elif opcion == 3:
+        archivo = open("./archivos/empleados.txt",'r')
