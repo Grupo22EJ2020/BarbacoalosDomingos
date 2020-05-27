@@ -14,7 +14,7 @@ class Empleados:
 print("Menu")
 while True:
     print("Te presento el menu para Empleados")
-    opcion= int(input("Opcion 1: Agregar, Que opcion eliges:\n"))
+    opcion= int(input("Opcion 1: Agregar,Opcion 2: Eliminar, Que opcion eliges:\n"))
     if opcion ==1:
         agregar= open("./archivos/empleados.txt" ,'a')
 
@@ -28,4 +28,6 @@ while True:
         agregar.write(info)
 
         agregar.close()
+    elif opcion==2:
+        print("Hola")
     break
