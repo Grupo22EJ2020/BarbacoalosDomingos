@@ -21,4 +21,10 @@ class CursoTema:
     @idTema.setter
     def idTema(self, nuevoValor):
         self.__idTema = nuevoValor
-            
+
+def validacionDeDato(cadena):
+    try:
+        int(cadena)
+        return True
+    except ValueError:
+        return False   
