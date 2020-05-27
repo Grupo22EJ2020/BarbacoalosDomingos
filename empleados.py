@@ -16,7 +16,7 @@ while True:
     print("Te presento el menu para Empleados")
     opcion= int(input("Opcion 1: Agregar,Opcion 2: Eliminar,4:Consultar todo Que opcion eliges:\n"))
     if opcion ==1:
-        archivo= open("./archivos/empleados.txt" ,'a')
+        archivo= open("./archivos/empleados.txt" ,'a',encoding='utf8')
 
         idempleado=int(input("Cual es el id del empleado:\n"))
         nombreEmpleado=input("Cual es su nombre:\n")
@@ -31,10 +31,8 @@ while True:
   
 
     elif opcion == 4:
-        archivo=open("./archivos/empleados.txt",'r')
-
-        print(archivo.read())
-
+        archivo = open("./archivos/empleados.txt","r")
+        for renglon in archivo:
+            datosproducto = renglon.split('|')
+            print(f'Clave: {datosproducto[0]} Nombre: {datosproducto[1]} Direccion:{datosproducto[2]}')
         archivo.close()
-
-        
