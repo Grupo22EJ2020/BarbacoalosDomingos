@@ -106,6 +106,29 @@ def main():
             archivo.close()
             print("\nMenú(TemaCurso)\n1.-Agregar Tema asignado a un curso.\n2.-Borrar Tema asignado a un curso.\n3.-Modificar Tema asignado a un curso.\n4.-Consultar todo.\n5.-Consultar un Tema asignado a un curso en específico.\n6.-Salir.")
             menu = int(input("Qué desea hacer?:\n"))
+        if menu == 4:
+            list3 = []
+            archivo = open("./archivos/curso_tema.txt","r")
+            for renglon in archivo:
+                z = renglon.split("|")
+                list3.append(f"IdCursoTema:{z[0]} IdCurso:{z[1]} IdTema:{z[2]}")
+            archivo.close()
+            for dato in list3:
+                print(dato)
+            print("\nMenú(TemaCurso)\n1.-Agregar Tema asignado a un curso.\n2.-Borrar Tema asignado a un curso.\n3.-Modificar Tema asignado a un curso.\n4.-Consultar todo.\n5.-Consultar un Tema asignado a un curso en específico.\n6.-Salir.")
+            menu = int(input("Qué desea hacer?:\n"))
+        if menu == 5:
+            porchecar = input("Coloque el id del CursoTema que desea saber sus datos:\n")
+            while validacionDeDato(porchecar) == False:
+                print("Valor ingresado no válido, intente de nuevo.")
+                porchecar = input("Coloque el id del idCursoTema que desee saber sus datos:\n")
+            archivo = open("./archivos/curso_tema.txt","r")
+            for renglon in archivo:
+                u = renglon.split("|")
+                if porchecar == u[0]:
+                    print(f"IdCursoTema:{u[0]} IdCurso:{u[1]} IdTema:{u[2]}")
+                else:
+                    pass
         if menu == 6:
             break
 main()
