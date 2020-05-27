@@ -1,36 +1,44 @@
 class Empleados:
-    def __init__(self,idempleado,nombreEmpleado,direccion):
-        self.__idempleado= idempleado
+    def __init__(self,idEmpleado,nombreEmpleado,direccion):
+        self.__idEmpleado= idEmpleado
         self.__nombreEmpleado= nombreEmpleado
         self.__direccion=direccion
     
     @property
-    def idempleado(self):
-        return self.__idempleado
+    def idEmpleado(self):
+        return self.__idEmpleado
     
     def infoempleado(self):
-        return f" {self.__idempleado}|{self.__nombreEmpleado}|{self.__direccion}"
+        return f" {self.__idEmpleado}|{self.__nombreEmpleado}|{self.__direccion}"
 listaEmpleado=[]
 print("Menu")
 while True:
     print("Te presento el menu para Empleados")
-    opcion= int(input("Opcion 1: Agregar,Opcion 2: Eliminar,4:Consultar todo Que opcion eliges:\n"))
+    opcion= int(input("Opcion 1: Agregar,Opcion 2: Eliminar,3:Consultar todo\n"))
     if opcion ==1:
         archivo= open("./archivos/empleados.txt" ,'a',encoding='utf8')
 
-        idempleado=int(input("Cual es el id del empleado:\n"))
+        idEmpleado=int(input("Cual es el id del empleado:\n"))
         nombreEmpleado=input("Cual es su nombre:\n")
         direccion=input("Cual es su direccion:\n")
 
-        empleado= Empleados(idempleado,nombreEmpleado,direccion)
+        empleado= Empleados(idEmpleado,nombreEmpleado,direccion)
         info=empleado.infoempleado()
 
         archivo.write(info)
 
         archivo.close()
-  
+    elif opcion ==2:
+        if listaEmpleado==[]:
+            print("Ingrese un valor...preione enter")
+        else:
+            reg=int(input("Registro:"))
+            for borrar in listaEmpleado:
+                if borrar.idEmpleado == reg:
+                    listaEmpleado.remove(Empleados(reg,None,None))
+                    input("Empleado borrado")
 
-    elif opcion == 4:
+    elif opcion == 3:
         archivo = open("./archivos/empleados.txt","r")
         for renglon in archivo:
             datosproducto = renglon.split('|')
