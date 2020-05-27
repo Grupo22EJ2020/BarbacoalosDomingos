@@ -7,9 +7,27 @@ class Empleados:
     @property
     def idEmpleado(self):
         return self.__idEmpleado
+
+    @property
+    def nombreEmpleado(self):
+        return self.__nombre
+    @nombreEmpleado.setter
+    def nombre(self,nuevonombre):
+        self.__nombre= nuevonombre
+
+    @property
+    def direccion(self):
+        return self.__direccion
+    @direccion.setter
+    def direccion(self,nuevadireccion):
+        self.__direccion= nuevadireccion
     
     def infoempleado(self):
         return f" {self.__idEmpleado}|{self.__nombreEmpleado}|{self.__direccion}"
+    
+    def __eq__(self,valor):
+        return self.__idEmpleado==valor.__idEmpleado
+
 listaEmpleado=[]
 print("Menu")
 while True:
@@ -29,8 +47,10 @@ while True:
 
         archivo.close()
     elif opcion ==2:
+        archivo= open("./archivos/empleados.txt",'w')
+        
         if listaEmpleado==[]:
-            print("Ingrese un valor...preione enter")
+            print("Ingrese un valor...presione enter")
         else:
             reg=int(input("Registro:"))
             for borrar in listaEmpleado:
