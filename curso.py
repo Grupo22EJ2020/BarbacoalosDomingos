@@ -14,6 +14,11 @@ class Curso:
 print ("Menu")
 while True:
     print ("Este es el menu para el curso")
+<<<<<<< HEAD
+    opcion=int(input("Opcion 1 Agregar, ¿Cual es la opcion que eliges?\n"))
+    if opcion==1:
+        agregar= open
+=======
     opcion=int(input("Opcion [1] Agregar\n, ¿Cual es la opcion que eliges?\n"))
     if opcion==[1]:
         agregar= open("./archivos/cursos.txt",'a')
@@ -35,6 +40,7 @@ while True:
 
 
 
+>>>>>>> d81dd2d7477881fb108178f5a7cb009f6e79398d
 
 
 
