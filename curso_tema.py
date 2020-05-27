@@ -61,7 +61,8 @@ def main():
             porborrar = input("Ingrese el idCursoTema que desee borrar:\n")
             archivo = open("./archivos/curso_tema.txt","r")
             for renglon in archivo:
-                if porborrar in renglon:
+                x = renglon.split("|")
+                if porborrar == x[0]:
                     pass
                 else:
                     list.append(renglon)
@@ -93,7 +94,8 @@ def main():
                 datonuevo3 = input("Coloque el nuevo valor de idTema:\n")
             archivo = open("./archivos/curso_tema.txt","r")
             for renglon in archivo:
-                if datoviejo in renglon:
+                y = renglon.split("|")
+                if datoviejo == y[0]:
                     list2.append(f"{datonuevo1}|{datonuevo2}|{datonuevo3}\n")
                 else:
                     list2.append(renglon)
