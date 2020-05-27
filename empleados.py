@@ -10,7 +10,7 @@ class Empleados:
     
     def infoempleado(self):
         return f" {self.__idempleado}|{self.__nombreEmpleado}|{self.__direccion}"
-    
+listaEmpleado=[]
 print("Menu")
 while True:
     print("Te presento el menu para Empleados")
@@ -28,6 +28,10 @@ while True:
         agregar.write(info)
 
         agregar.close()
-    elif opcion==2:
-        print("Hola")
+    elif opcion ==2:
+        if listaEmpleado==[]:
+            print("Actualmente esta vacia")
+        else:
+            idempleado=int(input("Id a eliminar"))
+            listaEmpleado.remove(Empleados(idempleado,None,None))
     break
