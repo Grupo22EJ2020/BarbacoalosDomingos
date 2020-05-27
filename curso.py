@@ -10,29 +10,34 @@ class Curso:
 
      def infocurso(self):
          return f"{self.__idcurso}|{self.__descripcion}|{self.__idempleado}"
-
+lista_curso=[]
 print ("Menu")
 while True:
     print ("Este es el menu para el curso")
-<<<<<<< HEAD
-    opcion=int(input("Opcion 1 Agregar, ¿Cual es la opcion que eliges?\n"))
-    if opcion==1:
-        agregar= open
-=======
-    opcion=int(input("Opcion [1] Agregar\n, ¿Cual es la opcion que eliges?\n"))
+    opcion=int(input("Opcion [1] Agregar\n,Opcion [2] Eliminar\n,Opcion [3] Modificar\n,Opcion [4] Consultar\n,¿Cual es la opcion que eliges?\n"))
     if opcion==[1]:
-        agregar= open("./archivos/cursos.txt",'a')
+        archivo= open("./archivos/cursos.txt",'a')
        
-    idcurso=int(input("¿Cual es el id del curso?\n"))
-    descripcion=input("¿Cual es la descripcion del curso?\n")
-    idempleado=int(input("¿Cual es el id del empleado?\n"))
+        idcurso=int(input("¿Cual es el id del curso?\n"))
+        descripcion=input("¿Cual es la descripcion del curso?\n")
+        idempleado=int(input("¿Cual es el id del empleado?\n"))
 
-    curso=Curso(idcurso,descripcion,idempleado)
-    info=curso.infocurso()
+        curso=Curso(idcurso,descripcion,idempleado)
+        info=curso.infocurso()
 
-    agregar.write(info)
+        archivo.write(info)
 
-    agregar.close()
+        archivo.close()
+    elif opcion==[2]:
+        if lista_curso==[]:
+            print("Ingrese el id del curso que desea borrar")
+        else:
+            reg=int(input("Registros:"))
+            for borrar in lista_curso:
+                if borrar.idcurso==reg:
+                    lista_curso.remove(Curso(reg,None,None))
+                    input("El curso a sido eliminado")
+                    archivo.close
 
 
 
@@ -40,7 +45,12 @@ while True:
 
 
 
->>>>>>> d81dd2d7477881fb108178f5a7cb009f6e79398d
+
+
+
+
+
+
 
 
 
