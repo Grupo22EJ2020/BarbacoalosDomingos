@@ -27,4 +27,7 @@ def validacionDeDato(cadena):
         int(cadena)
         return True
     except ValueError:
-        return False   
+        return False
+
+print("Menú(TemaCurso)\n1.-Agregar Tema asignado a un curso.\n2.-Borrar Tema asignado a un curso\n3.-Modificar Tema asignado a un curso\n4.-Consultar todo\n5.-Consultar un Tema asignado a un curso en específico.")
+   
