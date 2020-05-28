@@ -107,6 +107,8 @@ while True:
         for renglon in archivo:
             datosproducto = renglon.split('|')
             print(f'Clave: {datoscurso[1]} Nombre: {datoscurso[2]} Direccion:{datoscurso[3]}')
+            for dato in list3:
+                print(dato)
         archivo.close()
 
     
