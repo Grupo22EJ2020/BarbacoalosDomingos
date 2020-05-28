@@ -7,9 +7,6 @@ class Curso:
     @property 
     def idCurso(self):
          return self.__idCurso
-
-    def infoCurso(self):
-         return f"{self.__idCurso}|{self.__descripcion}|{self.__idempleado}"
     
     @property
     def descripcion(self):
@@ -27,6 +24,9 @@ class Curso:
     def descripcion(self,nuevadescrpcion):
         self.__descripcion = nuevadescripcion
 
+    def infoCurso(self):
+         return f"{self.__idCurso}|{self.__descripcion}|{self.__idempleado}"
+
     
 
 lista_curso=[]
@@ -35,36 +35,43 @@ while True:
     print ("Este es el menu para el Curso")
     opcion=int(input(" Opcion [1] Agregar\n Opcion [2] Eliminar\n Opcion [3] Modificar\n Opcion [4] Consultar\n ¿Cual es la opcion que eliges?\n"))
     if opcion==1:
-        archivo =open("./archivos/cursos.txt",'a') 
+        archivo =open("./archivos/cursos.txt",'a',encoding='utf8') 
        
         idCurso=int(input("¿Cual es el id del curso?\n"))
         descripcion=input("¿Cual es la descripcion del curso?\n")
         idempleado=int(input("¿Cual es el id del empleado?\n"))
 
         curso=Curso(idCurso,descripcion,idempleado)
-        info=curso.infocurso()
+        info=curso.infoCurso()
 
         archivo.write(info)
 
         archivo.close()
+
+        break
        
     elif opcion==2:
-        archivo= open("./archivos/empleados.txt",'w')
-        if lista_curso==[]:
-            print("Ingresa el cursoa eliminar")
-        else:
-            reg=int(input("Registro:"))
-            for borrar in lista_curso:
-                if borrar.idCurso == reg:
-                    lista_curso.remove(curso(reg,None,None))
-                    input("Curso eliminado")
-
+        list = []
+        borrar = input("Ingrese el id del curso a eliminar:\n")
+        archivo = open("./archivos/curso_tema.txt","r")
+        for renglon in archivo:
+             R = renglon.split("|")
+             if borrar == R[0]:
+                  pass
+             else:
+                 list.append(renglon)
+                 archivo.close()
+        archivo = open("./archivos/curso_tema.txt","w")
+        for dato in list:
+            archivo.write(dato)
+            archivo.close()
+            print("El curso a sido eliminado")
     
     elif opcion==3:
         def main3():
             numero = 0
             print("A eligido modificar")
-            numero = input("Ingrese el numero del curso a modificar")
+            numero = input("Ingrese el numero del curso a modificar\n")
             archivo= open("./archivos/empleados.txt",'r')
             lineas = archivo.readlines()
             archivo.close
@@ -81,4 +88,26 @@ while True:
             archivo.close
         main3()
     elif opcion == 3:
+        list2=[]
         archivo = open("./archivos/empleados.txt",'r')
+        for renglon in archivo:
+                X = renglon.split("|")
+                if datoviejo == X[0]:
+                    list2.append(f"{datonuevo1}|{datonuevo2}|{datonuevo3}\n")
+                else:
+                    list2.append(renglon)
+                    archivo.close()
+        archivo = open("./archivos/curso_tema.txt","w")
+        for dato in list2:
+            archivo.write(dato)
+            archivo.close()
+
+    elif opcion==4:
+        archivo = open("./archivos/empleados.txt","r")
+        for renglon in archivo:
+            datosproducto = renglon.split('|')
+            print(f'Clave: {datoscurso[1]} Nombre: {datoscurso[2]} Direccion:{datoscurso[3]}')
+        archivo.close()
+
+    
+        
