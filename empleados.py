@@ -58,28 +58,6 @@ while True:
                     listaEmpleado.remove(Empleados(reg,None,None))
                     input("Empleado borrado")
 
-    elif opcion==3:
-        def main3():
-            numero = 0
-            print("Eligió la opcion de Modificar")
-            print("*"*30)
-            numero = input("Ingrese el numero del empleado que desea modificar: ")
-            print("*"*30)
-            archivoM = open("./archivos/Empleados.txt","r")
-            lineas = archivoM.readlines()
-            archivoM.close()
-            archivoM = open("./archivos/Empleados.txt","w")
-
-            for linea in lineas:
-                if linea[0] == numero:
-                    idEmpleado = (input("Ingrese su IdEmpleado nuevo: "))
-                    nombre = (input("Ingrese su Nombre de Empleado nuevo: "))
-                    direccion = (input("Ingrese su Direccion de Empleado nuevo: "))
-                    archivoM.write(idEmpleado + "|" + nombre + "|" + direccion +"|"+ "\n")
-                else:
-                    archivoM.write(linea)
-            archivoM.close()
-        main3()
     elif opcion == 3:
         archivo = open("./archivos/empleados.txt","r")
         for renglon in archivo:
